@@ -69,9 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// profile picture hover effect
-// รูปที่ 1
 const profilePic = document.getElementById("profile-pic");
+
 const originalSrc = "images/profile-hover.png";
 const hoverSrc = "images/profile roblox.png";
 
@@ -82,62 +81,6 @@ profilePic.addEventListener("mouseover", () => {
 profilePic.addEventListener("mouseout", () => {
   profilePic.src = originalSrc;
 });
-
-
-// รูปที่ 2
-const profilePic2 = document.getElementById("profile-pic2");
-const originalSrc2 = "images/matee.jpg";
-const hoverSrc2 = "images/profile picture2.png"; // หรือชื่อรูปที่คุณมี
-
-profilePic2.addEventListener("mouseover", () => {
-  profilePic2.src = hoverSrc2;
-});
-
-profilePic2.addEventListener("mouseout", () => {
-  profilePic2.src = originalSrc2;
-});
-
-
-
-// Dark Mode Toggle
-const themeToggle = document.getElementById('theme-icon');
-const currentTheme = localStorage.getItem('theme') || 'light';
-
-document.documentElement.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-});
-
-function updateThemeIcon(theme) {
-    themeToggle.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-}
-
-// Loading Animation
-window.addEventListener('load', () => {
-    const loader = document.querySelector('.loader');
-    setTimeout(() => {
-        loader.classList.add('fade-out');
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
-    }, 1000);
-});
-
-
-// Scroll Progress Indicator
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-    const docHeight = document.body.offsetHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    
-    document.querySelector('.progress-bar').style.width = scrollPercent + '%';
 
 // Project Filter System
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -215,5 +158,4 @@ backToTopButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-
 });
